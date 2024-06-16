@@ -1,12 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <title>My First Webpage</title>
+    <title>Page Title</title>
 </head>
 
 <body>
+    <script>
+        // Your JavaScript goes here!
+
+
+
+
+        function getComputerChoice() {
+            var rps = Math.random()
+            if (rps < 0.33) {
+                return "rock";
+            } else if (rps < 0.67) {
+                return "paper";
+            } else {
+                return "scissors";
+            }
+        }
+
+        function getHumanChoice() {
+            var humchoice = String(prompt("What's your choice?"));
+            return humchoice;
+        }
+
+        var robot = 0;
+        var human = 0;
+
+        function playRound(humanChoice, computerChoice) {
+            const h = humanChoice.toLowerCase();
+            const c = computerChoice.toLowerCase();
+
+            if (h == c) {
+                console.log("It's a tie")
+            } else if (h == "scissor" && c == "paper") {
+                console.log("You win! Scissor beats paper")
+            } else if (h == "paper" && c == "rock") {
+                console.log("You win!")
+            } else if (h == "rock" && c == "scissor") {
+                console.log("You win!")
+            } else {
+
+            }
+        }
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+
+
+
+        console.log(getHumanChoice())
+
+
+
+
+    </script>
 </body>
 
 </html>
