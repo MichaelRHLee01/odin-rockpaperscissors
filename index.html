@@ -11,7 +11,7 @@
         // Your JavaScript goes here!
 
 
-
+        playGame();
 
         function getComputerChoice() {
             var rps = Math.random()
@@ -29,34 +29,50 @@
             return humchoice;
         }
 
-        var robot = 0;
-        var human = 0;
 
-        function playRound(humanChoice, computerChoice) {
-            const h = humanChoice.toLowerCase();
-            const c = computerChoice.toLowerCase();
 
-            if (h == c) {
-                console.log("It's a tie")
-            } else if (h == "scissor" && c == "paper") {
-                console.log("You win! Scissor beats paper")
-            } else if (h == "paper" && c == "rock") {
-                console.log("You win!")
-            } else if (h == "rock" && c == "scissor") {
-                console.log("You win!")
-            } else {
 
+
+
+        function playGame() {
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+
+            function playRound(humanChoice, computerChoice) {
+                const h = humanChoice.toLowerCase();
+                const c = computerChoice.toLowerCase();
+
+                if (h == c) {
+                    console.log("It's a tie");
+                } else if (h == "scissor" && c == "paper") {
+                    console.log("You win! Scissor beats paper");
+                    humanScore += 1;
+                } else if (h == "paper" && c == "rock") {
+                    console.log("You win!");
+                    humanScore += 1;
+                } else if (h == "rock" && c == "scissor") {
+                    console.log("You win!");
+                    humanScore += 1;
+                } else if (h == "scissor" && c == "rock") {
+                    console.log("You lose!");
+                    computerScore += 1;
+                } else if (h == "paper" && c == "scissor") {
+                    console.log("You lose!");
+                    computerScore += 1;
+                } else if (h == "rock" && c == "paper") {
+                    console.log("You lose!");
+                    computerScore += 1;
+                }
             }
+
+            var computerScore = 0;
+            var humanScore = 0;
+
+            playRound(humanSelection, computerSelection);
+
+
+
         }
-
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-
-        playRound(humanSelection, computerSelection);
-
-
-
-        console.log(getHumanChoice())
 
 
 
